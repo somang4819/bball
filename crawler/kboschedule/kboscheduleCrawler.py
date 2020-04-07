@@ -13,9 +13,14 @@ import requests
 import base64
 import hashlib
 import hmac
+from datetime import timedelta
+import difflib
 
-#from dateutil.relativedelta import relativedelta
+#from dateutil.relativedelta import *
 
+#from dateutil import relativedelta
+#from datetime import datetime
+#from dateutil import relativedelta
 '''
 (venv) [baseball@localhost baseball]$ python3.6 -m pip install python-dateutil --upgrade
 Collecting python-dateutil
@@ -165,9 +170,15 @@ class kboscheduleCrawler(CrawlerBase):
 
     #다음달 데이터 sync
     #2i API 의 키 생성 규칙을 이용해서 DB에서 fetch할 데이터의 양을 정함
-    #today = datetime.datetime.strptime(self.crawlerData.g_ds, "%Y%m%d").date()
-    #nextmonth = today + relativedelta(months=1)
-    #nextmonthstr=str(nextmonth).replace("-","")
+    today = datetime.datetime.strptime(self.crawlerData.g_ds,'%Y%m%d')
+    nextmonth = today + timedelta(days=20)
+    nextmonthstr=str(nextmonth).replace("-","")
 
-    #print(nextmonthstr[:-2])
+    #print(nextmonthstr[:-11])
     #print(self.crawlerData.g_ds[:-2])
+    #if nextmonthstr[:-11] != self.crawlerData.g_ds[:-2]
+
+    ratio = difflib.SequenceMatcher(None, nextmonthstr[:-11], self.crawlerData.g_ds[:-2]).ratio()
+    if ratio != 1: 
+      print(ratio)
+      super().BaseSynch()

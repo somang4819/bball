@@ -2,6 +2,8 @@
 [baseball@localhost baseball]$ source venv/bin/activate
 # 서버 실행
 (venv) [baseball@localhost baseball]$ uwsgi --ini wsgi.ini 
+# 테스트 
+
 
 #트러블슈팅
 [에러 현상] 바인드 에러

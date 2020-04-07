@@ -221,4 +221,4 @@ class scoreCrawler(CrawlerBase):
     self.AmountOfDataToSync += self.crawlerData.g_ds
 
     #synchronize 수행
-    super().BaseSynch()
+    #super().BaseSynch()

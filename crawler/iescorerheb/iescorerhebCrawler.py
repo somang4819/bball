@@ -166,7 +166,7 @@ class iescorerhebCrawler(CrawlerBase):
       self.AmountOfDataToSync += self.crawlerData.g_ds
 
       #synchronize수행 
-      super().BaseSynch()
+      #super().BaseSynch()
 
 
 
