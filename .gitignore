@@ -2,7 +2,7 @@ log/**/*
 venv/**/*
 install/**/*
 config.py
-config.py.bak
+config.py.back
 log/*
 venv/*
 install/*
