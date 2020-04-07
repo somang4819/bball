@@ -213,3 +213,12 @@ class scoreCrawler(CrawlerBase):
 
     # 삭제 업데이트
 
+    #smyu 200317 API에서 사라진 데이터를 DB에서 삭제
+
+    #이번달 데이터 sync 
+    #2i API 의 키 생성 규칙을 이용해서 DB에서 fetch할 데이터의 양을 정함
+    #score 데이블을 하루 단위
+    self.AmountOfDataToSync += self.crawlerData.g_ds
+
+    #synchronize 수행
+    super().BaseSynch()
