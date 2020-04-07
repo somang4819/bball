@@ -210,7 +210,6 @@ class scoreCrawler(CrawlerBase):
       )
       self.logger.error('< ' + self.crawlerData.channel + ' : ' + self.crawlerData.detail + ' > ' + ex)
 
-
     # 삭제 업데이트
 
     #smyu 200317 API에서 사라진 데이터를 DB에서 삭제
@@ -221,4 +220,6 @@ class scoreCrawler(CrawlerBase):
     self.AmountOfDataToSync += self.crawlerData.g_ds
 
     #synchronize 수행
-    #super().BaseSynch()
+    super().BaseSynch()
+
+    # 데이터 저장은 crawlerbase 소스에서 처리 확인

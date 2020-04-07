@@ -146,8 +146,6 @@ class iegamestateCrawler(CrawlerBase):
         )
         self.logger.error('< ' + self.crawlerData.channel + ' : ' + self.crawlerData.detail + ' > ' + ex)
 
-      # 데이터 저장은 공통 소스에서 처리 확인
-
       #smyu 200317 API에서 사라진 데이터를 DB에서 삭제
       
       #2i API 의 키 생성 규칙을 이용해서 끌어올 데이터의 양을 정함
@@ -155,8 +153,7 @@ class iegamestateCrawler(CrawlerBase):
       self.AmountOfDataToSync += self.crawlerData.g_ds
 
       #synchronize수행 
-      #super().BaseSynch()
+      super().BaseSynch()
 
-
-
+      # 데이터 저장은 crawlerbase 소스에서 처리 확인\
 

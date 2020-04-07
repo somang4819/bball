@@ -152,7 +152,6 @@ class kboscheduleCrawler(CrawlerBase):
       )
       self.logger.error('< ' + self.crawlerData.channel + ' : ' + self.crawlerData.detail + ' > ' + ex)
 
-    # 데이터 저장은 공통 소스에서 처리 확인
     #smyu 200317 API에서 사라진 데이터를 DB에서 삭제
 
     #이번달 데이터 sync 
@@ -169,7 +168,10 @@ class kboscheduleCrawler(CrawlerBase):
     nextmonth = today + timedelta(days=30)
     nextmonthstr=str(nextmonth).replace("-","")
 
+    #30일 이후 날짜가 크롤링 날짜와 동일 달이면 sync 수행 안함.
     ratio = difflib.SequenceMatcher(None, nextmonthstr[:-11], self.crawlerData.g_ds[:-2]).ratio()
     if ratio != 1: 
       self.AmountOfDataToSync = nextmonthstr[:-11]
       super().BaseSynch()
+
+    # 데이터 저장은 base 소스에서 처리 확인

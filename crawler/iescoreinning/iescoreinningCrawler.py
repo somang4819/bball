@@ -138,7 +138,6 @@ class iescoreinningCrawler(CrawlerBase):
         )
         self.logger.error('< ' + self.crawlerData.channel + ' : ' + self.crawlerData.detail + ' > ' + ex)
 
-    # 데이터 저장은 공통 소스에서 처리 확인
     
     #smyu 200317 API에서 사라진 데이터를 DB에서 삭제
     
@@ -147,7 +146,9 @@ class iescoreinningCrawler(CrawlerBase):
     self.AmountOfDataToSync += self.crawlerData.g_ds
 
     #synchronize수행 
-    #super().BaseSynch()
+    super().BaseSynch()
+ 
+    # 데이터 저장은 crawlerbase 소스에서 처리 확인
 
 
 
