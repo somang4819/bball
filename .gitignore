@@ -1,8 +1,11 @@
 log/**/*
 venv/**/*
+venv2/**/*
 install/**/*
 config.py
 config.py.back
 log/*
 venv/*
+venv2/*
 install/*
+*.tar.gz
