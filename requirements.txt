@@ -39,7 +39,7 @@ prometheus-client==0.7.1
 prompt-toolkit==3.0.5
 ptvsd==4.3.2
 ptyprocess==0.6.0
-Pygments==2.6.1
+Pygments==2.7.4
 PyJWT==1.7.1
 PyMySQL==0.9.3
 pyrsistent==0.15.7
